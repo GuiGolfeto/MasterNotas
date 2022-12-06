@@ -12,11 +12,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
 #import variables
-X1 = 1576
-Y1 = 829
+X1 = 1019
+Y1 = 523
 
-X2 = 494
-Y2 = 883
+X2 = 490
+Y2 = 581
 
 
 def navegador(desc, price, ordem, NFremessa, NFretorno):
