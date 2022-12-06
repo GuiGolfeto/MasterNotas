@@ -60,7 +60,7 @@ def navegador(desc, price, ordem, NFremessa, NFretorno):
 
     # Services discrimination
     nav.find_element(
-        By.XPATH, '//*[@id="formEmissaoNFConvencional:descricaoItem"]').send_keys(desc)  # descrição
+        By.XPATH, '//*[@id="formEmissaoNFConvencional:descricaoItem"]').send_keys(desc.upper())  # descrição
     sleep(2)
     nav.find_element(By.XPATH, '//*[@id="formEmissaoNFConvencional:vlrUnitario_input"]').send_keys(Keys.CONTROL,
                                                                                                    "a")  # valor
@@ -77,14 +77,12 @@ def navegador(desc, price, ordem, NFremessa, NFretorno):
     pyautogui.click(x=X2, y=Y2)
     sleep(3)
     pyautogui.click(x=X2, y=Y2)
-    sleep(3)
+    sleep(2)
     text_obs = f'documento referente a ordem de compra {ordem} nf de remessa {NFremessa} e nf de retorno de remessa {NFretorno} dados para deposito: banco bradesco agencia 020-5, conta corrente 3706-0'
-    pyautogui.write(text_obs)
-    sleep(3)
-    pop = sg.popup_ok_cancel('Verificação', 'Preencha o campo do CNPJ, lance e baixe a NF! ', 'Após isso clique em OK para lançar outra NF ou em Cancel para fechar o app')
+    pyautogui.write(text_obs.upper())
+    sleep(1)
+    pop = sg.popup_ok('Verificação', 'Preencha o campo do CNPJ, lance e baixe a NF! ', 'Após isso clique em OK para lançar outra NF')
     
     if (pop == 'OK'):
         sleep(1)
-    elif (pop == 'Cancel'):
-        sg.WIN_CLOSED
         
